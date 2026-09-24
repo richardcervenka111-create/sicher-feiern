@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5B2A86">
+<title>Sicher feiern</title>
+<meta name="description" content="Plakat und Team-Karte für Bars und Clubs: Codewort für diskrete Hilfe, Schutz vor K.O.-Tropfen, sicher nach Hause, Notrufnummern, QR zum Meldetool. Ausfüllen, drucken, aufhängen. Nichts wird gesendet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Archivo+Black&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<style>
+:root{
+  --bg:#F4F2F7; --surface:#FFFFFF; --surface-2:#EAE6F0; --line:#CFC7DB;
+  --ink:#171321; --ink-2:#433A55; --muted:#75698A;
+  --acc:#5B2A86; --acc-soft:#E9DDF5; --red:#C8102E; --red-soft:#FBE3E7; --go:#2E7D4F; --go-soft:#DDF1E4; --gold:#E3B505; --gold-soft:#FBF1C7;
+  --shadow:0 10px 30px rgba(23,19,33,.10);
+  --body:"Atkinson Hyperlegible","Segoe UI",Roboto,Helvetica,Arial,sans-serif; --display:"Archivo Black","Arial Black",Impact,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){color-scheme:dark;
+    --bg:#110E17; --surface:#1A1522; --surface-2:#251E30; --line:#3D3350;
+    --ink:#F1EDF6; --ink-2:#CFC6DC; --muted:#958AA8;
+    --acc:#B78CE6; --acc-soft:#2E2140; --red:#E5333F; --red-soft:#3D1A20; --go:#5CC98A; --go-soft:#173626; --gold:#F2C530; --gold-soft:#3A3212;
+    --shadow:0 10px 30px rgba(0,0,0,.45)}
+}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#110E17; --surface:#1A1522; --surface-2:#251E30; --line:#3D3350;
+  --ink:#F1EDF6; --ink-2:#CFC6DC; --muted:#958AA8;
+  --acc:#B78CE6; --acc-soft:#2E2140; --red:#E5333F; --red-soft:#3D1A20; --go:#5CC98A; --go-soft:#173626; --gold:#F2C530; --gold-soft:#3A3212;
+  --shadow:0 10px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 var(--body)}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:16px;padding-block:12px 64px;display:grid;gap:18px}
+h1,h2,h3{margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:30px;font-weight:700}
+p{margin:0;max-width:66ch}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand small{display:block;font-size:15px;color:var(--muted)}
+.langs{display:flex;gap:4px;background:var(--surface-2);padding:4px;border-radius:999px}
+.langs button{border:0;background:transparent;border-radius:999px;padding:6px 12px;font-weight:700;font-size:14px;color:var(--ink-2)}
+.langs button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.intro{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px}
+.intro ol{margin:0;padding-left:22px;display:grid;gap:4px;font-size:16px}
+.note{display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:12px 14px;font-size:15px;background:var(--acc-soft)}
+.note .dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--acc);margin-top:6px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+@media (max-width:1000px){.layout{grid-template-columns:minmax(0,1fr)}}
+form{display:grid;gap:14px}
+fieldset{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:14px 16px 16px;margin:0;display:grid;gap:12px;min-width:0}
+legend{font-weight:700;font-size:18px;padding:0 6px}
+.row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+label.f{display:grid;gap:4px;font-size:14px;color:var(--ink-2);min-width:0}
+label.f span{font-weight:700}
+input[type=text],input[type=tel],input[type=url],input[type=date],textarea,select{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-height:46px}
+.chk{display:flex;gap:10px;align-items:center;background:var(--surface-2);border-radius:10px;padding:9px 12px;font-size:15px;min-height:44px}
+.chk input{width:20px;height:20px;flex:none;accent-color:var(--acc)}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--surface-2);border-radius:12px;padding:4px;gap:4px;max-width:100%}
+.seg button{border:0;background:transparent;border-radius:9px;padding:9px 14px;font-weight:700;font-size:15px;color:var(--ink-2);min-height:44px}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700;font-size:16px;min-height:48px;background:var(--surface-2);color:var(--ink)}
+.btn.primary{background:var(--acc);color:#fff;box-shadow:var(--shadow)}
+.btn.ghost{background:transparent;border:2px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.small{font-size:14px;color:var(--muted)}
+.preview{position:sticky;top:env(safe-area-inset-top,0px);display:grid;gap:10px}
+@media (max-width:1000px){.preview{position:static}}
+.sheetwrap{background:var(--surface-2);border-radius:16px;padding:12px;overflow:auto}
+
+/* poster */
+.poster{--p-bg:#171321;--p-ink:#F6F2FA;--p-ink2:#CFC6DC;--p-acc:#C9A6F2;--p-red:#FF5A63;--p-line:#3D3350;--p-soft:#251E30;
+  width:210mm;min-height:297mm;background:var(--p-bg);color:var(--p-ink);padding:12mm 13mm 10mm;margin:0 auto;display:grid;grid-template-rows:auto 1fr auto;gap:5mm;
+  font:11pt/1.35 var(--body);transform-origin:top left;box-shadow:0 6px 24px rgba(0,0,0,.3);position:relative}
+.poster.light{--p-bg:#FFFFFF;--p-ink:#171321;--p-ink2:#433A55;--p-acc:#5B2A86;--p-red:#C8102E;--p-line:#CFC7DB;--p-soft:#F1ECF7}
+.poster.example::after{content:attr(data-example);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-22deg);font-size:64pt;font-weight:700;color:rgba(201,166,242,.12);pointer-events:none;white-space:nowrap}
+.p-head{display:grid;gap:1.5mm;border-bottom:1.2mm solid var(--p-acc);padding-bottom:3mm}
+.p-head .kicker{font-size:10pt;letter-spacing:.1em;text-transform:uppercase;color:var(--p-acc);font-weight:700}
+.p-head .t{font:400 30pt/1 var(--display);letter-spacing:-.01em}
+.p-head .venue{font-size:13pt;color:var(--p-ink2)}
+.p-body{display:grid;gap:4mm;align-content:start}
+.p-code{background:var(--p-acc);color:#171321;border-radius:3mm;padding:5mm 6mm;display:grid;gap:1.5mm}
+.p-code .k{font-size:9.5pt;letter-spacing:.08em;text-transform:uppercase;font-weight:700;opacity:.85}
+.p-code .w{font:400 26pt/1.05 var(--display)}
+.p-code p{font-size:11pt;max-width:none}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.p-box{background:var(--p-soft);border-radius:3mm;padding:4mm 5mm;display:grid;gap:2mm;align-content:start}
+.p-box h3{font-size:10pt;letter-spacing:.08em;text-transform:uppercase;color:var(--p-acc);margin:0}
+.p-box ul{margin:0;padding-left:4.5mm;display:grid;gap:1.2mm;font-size:10.5pt}
+.p-box p{font-size:10.5pt;max-width:none}
+.p-box.red h3{color:var(--p-red)}
+.p-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.p-num{background:var(--p-soft);border-radius:2.5mm;padding:3mm 3.5mm;display:grid;gap:.5mm}
+.p-num b{font:400 20pt/1 var(--display)}
+.p-num span{font-size:8.5pt;color:var(--p-ink2)}
+.p-num.hot{background:var(--p-red);color:#fff}.p-num.hot span{color:#fff}
+.p-qr{display:grid;grid-template-columns:32mm 1fr;gap:4mm;align-items:center;background:var(--p-soft);border-radius:3mm;padding:4mm 5mm}
+.p-qr .q{width:32mm;height:32mm;background:#fff;border-radius:2mm;padding:2mm;display:grid;place-items:center}
+.p-qr .q svg{width:100%;height:100%;display:block}
+.p-qr b{font-size:12pt;display:block}
+.p-qr span{font-size:10pt;color:var(--p-ink2)}
+.p-foot{border-top:.3mm solid var(--p-line);padding-top:2.5mm;font-size:8.5pt;color:var(--p-ink2);display:flex;justify-content:space-between;gap:6mm;flex-wrap:wrap}
+
+/* staff cards */
+.cards{display:none}
+.card5{width:210mm;height:148mm;padding:10mm 12mm;background:#fff;color:#171321;display:grid;grid-template-rows:auto 1fr auto;gap:3mm;font:10pt/1.3 var(--body);border-bottom:.3mm dashed #999;page-break-inside:avoid}
+.card5 .h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1mm solid #5B2A86;padding-bottom:1.5mm}
+.card5 .h b{font-size:15pt}.card5 .h span{font-size:9pt;color:#433A55}
+.card5 ol{margin:0;padding-left:5mm;display:grid;gap:1.6mm;font-size:10pt}
+.card5 ol li b{color:#5B2A86}
+.card5 .f{font-size:8.5pt;color:#433A55;display:flex;justify-content:space-between;gap:4mm}
+.card5 .lines{display:grid;gap:2.2mm;margin-top:1mm}
+.card5 .lines div{border-bottom:.3mm solid #999;height:6mm;font-size:8pt;color:#666}
+
+footer.site{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}
+footer.site a{color:var(--ink-2)}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .wrap>*:not(.layout),.layout>*:not(.preview),.preview>*:not(.sheetwrap),.toast{display:none!important}
+  .wrap{padding:0;max-width:none;display:block}.layout{display:block}.preview{position:static;display:block}
+  .sheetwrap{padding:0;background:#fff;border-radius:0;overflow:visible}
+  body.print-poster .poster{box-shadow:none;margin:0;transform:none!important;min-height:auto;height:297mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.print-poster .poster.example::after{display:none}
+  body.print-cards .sheetwrap{display:none}
+  body.print-cards .cards{display:block;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><h1>Sicher feiern</h1><small data-i18n="tagline">Ein Plakat für die Gäste, eine Karte fürs Team. Für jede Bar und jeden Club in Bern.</small></div>
+    <div class="langs" role="group" aria-label="Sprache">
+      <button type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-lang="it" aria-pressed="false">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p data-i18n="intro_p">Wer sich im Ausgang bedrängt fühlt oder plötzlich merkt, dass etwas nicht stimmt, braucht eine einfache Tür zur Hilfe: ein Wort an der Bar, und das Team weiss, was zu tun ist. Grosse Clubs haben Awareness-Konzepte; die Quartierbar, die Beiz und das Vereinsfest haben oft nichts. Diese Seite macht daraus in zehn Minuten ein Plakat und eine Team-Karte.</p>
+    <ol>
+      <li data-i18n="intro_1">Betrieb und ein eigenes Codewort eintragen. Ein unauffälliger Satz, den kein Gast zufällig sagt.</li>
+      <li data-i18n="intro_2">Plakat drucken (WC-Türen, Garderobe, hinter der Bar) und die Team-Karte ans Personal geben. Fünf Minuten Briefing vor der Schicht.</li>
+      <li data-i18n="intro_3">Bei jedem Teamwechsel wiederholen. Ein Codewort, das das Personal nicht kennt, ist schlimmer als keines.</li>
+    </ol>
+    <div class="note"><span class="dot"></span><span data-i18n="note">Nichts wird gesendet. Die Angaben bleiben in deinem Browser. Die Seite ersetzt kein Sicherheitskonzept und keine Schulung; sie ist der Anfang davon. Inhalte folgen den öffentlichen Empfehlungen von Polizei und Beratungsstellen zu Belästigung und K.O.-Tropfen; Details für Bern bei der Kantonspolizei Bern und der Stadt Bern («Bern schaut hin»).</span></div>
+  </section>
+
+  <div class="layout">
+  <form id="f" autocomplete="off">
+    <fieldset>
+      <legend data-i18n="l_venue">Betrieb</legend>
+      <div class="row">
+        <label class="f"><span data-i18n="f_venue">Name des Betriebs</span><input type="text" id="venue" data-k="venue" placeholder="Bar Sonne"></label>
+        <label class="f"><span data-i18n="f_code">Codewort</span><input type="text" id="code" data-k="code" data-i18n-ph="ph_code" placeholder="Ist Anna da?"></label>
+      </div>
+      <div class="row">
+        <label class="f"><span data-i18n="f_contact">Ansprechperson im Betrieb</span><input type="text" id="contact" data-k="contact" data-i18n-ph="ph_contact" placeholder="Barchef*in oder Security, jede Nacht vor Ort"></label>
+        <label class="f"><span data-i18n="f_taxi">Taxi (Nummer, die ihr anruft)</span><input type="tel" id="taxi" data-k="taxi" placeholder="031 …"></label>
+      </div>
+      <div class="row">
+        <label class="f" style="grid-column:span 2"><span data-i18n="f_report">Link zum Meldetool oder zur Beratungsstelle (wird als QR gedruckt)</span><input type="url" id="report" data-k="report" placeholder="https://…"></label>
+        <label class="f"><span data-i18n="f_report_lbl">Beschriftung des QR</span><input type="text" id="reportlbl" data-k="reportlbl" data-i18n-ph="ph_reportlbl" placeholder="Bern schaut hin: Belästigung melden"></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend data-i18n="l_opts">Plakat</legend>
+      <div class="seg" role="group"><button type="button" id="thDark" aria-pressed="true" data-i18n="th_dark">Dunkel (Club)</button><button type="button" id="thLight" aria-pressed="false" data-i18n="th_light">Hell (Beiz, Fest)</button></div>
+      <label class="chk"><input type="checkbox" id="o_night" data-k="o_night" checked><span data-i18n="c_night">Block «Sicher nach Hause» mit Moonliner-Hinweis</span></label>
+      <label class="chk"><input type="checkbox" id="o_second" data-k="o_second"><span data-i18n="c_second">Codewort-Satz zusätzlich auf Französisch und Englisch</span></label>
+      <label class="f"><span data-i18n="f_extra">Eigener Zusatz</span><input type="text" id="extra" data-k="extra" data-i18n-ph="ph_extra" placeholder="Unser Team ist geschult. Awareness-Team erkennbar am violetten Band."></label>
+      <label class="f"><span data-i18n="f_trained">Team gebrieft am</span><input type="date" id="trained" data-k="trained"></label>
+    </fieldset>
+    <div class="actions">
+      <button type="button" class="btn primary" id="printPoster" data-i18n="b_poster">Plakat drucken (A4, A3 skalieren)</button>
+      <button type="button" class="btn ghost" id="printCards" data-i18n="b_cards">Team-Karten drucken (2 × A5)</button>
+      <button type="button" class="btn ghost" id="exampleBtn" data-i18n="b_example">Beispiel ansehen</button>
+      <button type="button" class="btn ghost" id="clearBtn" data-i18n="b_clear">Alles löschen</button>
+    </div>
+    <p class="small" data-i18n="print_hint">Im Druckdialog «Kopf- und Fusszeilen» aus, «Hintergrundgrafiken» an. Für A3: Skalierung 141 %.</p>
+  </form>
+
+  <aside class="preview" aria-label="Vorschau">
+    <div class="eyebrow" data-i18n="prev_eyebrow">Vorschau Plakat</div>
+    <div class="sheetwrap" id="sheetwrap">
+      <article class="poster example" id="poster" data-example="">
+        <header class="p-head"><div class="kicker" id="p_kicker"></div><div class="t" id="p_title"></div><div class="venue" id="p_venue"></div></header>
+        <section class="p-body">
+          <div class="p-code"><div class="k" id="p_code_k"></div><div class="w" id="p_code_w"></div><p id="p_code_p"></p><p id="p_code_2" style="font-size:9.5pt;opacity:.85"></p></div>
+          <div class="p-grid">
+            <div class="p-box red"><h3 id="p_drink_h"></h3><ul id="p_drink_ul"></ul></div>
+            <div class="p-box" id="p_home"><h3 id="p_home_h"></h3><ul id="p_home_ul"></ul></div>
+          </div>
+          <div class="p-nums" id="p_nums"></div>
+          <div class="p-qr" id="p_qr" hidden><div class="q" id="p_qr_svg"></div><div><b id="p_qr_lbl"></b><span id="p_qr_url"></span></div></div>
+          <p id="p_extra" style="font-size:10.5pt;color:var(--p-ink2)"></p>
+        </section>
+        <footer class="p-foot"><span id="p_foot1"></span><span id="p_foot2"></span></footer>
+      </article>
+    </div>
+    <div class="cards" id="cards"></div>
+  </aside>
+  </div>
+
+  <footer class="site">
+    <p data-i18n="site_1">Sicher feiern ist frei (CC0). Keine Ersatz für Beratung: bei Übergriffen Polizei 117, bei Gesundheitsgefahr 144, Opferhilfe über die kantonale Beratungsstelle. Hinweise zur Sicherheit im Nachtleben: Kantonspolizei Bern, Stadt Bern.</p>
+    <p><a href="https://github.com/richardcervenka111-create/sicher-feiern" target="_blank" rel="noopener">GitHub</a> · <a href="https://richardcervenka111-create.github.io/baern-hilft/" target="_blank" rel="noopener">Bärn hilft</a> · <a href="https://richardcervenka111-create.github.io/allergen-poster/" target="_blank" rel="noopener">Allergen-Poster</a></p>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var I18N={
+de:{tagline:'Ein Plakat für die Gäste, eine Karte fürs Team. Für jede Bar und jeden Club in Bern.',
+ intro_p:'Wer sich im Ausgang bedrängt fühlt oder plötzlich merkt, dass etwas nicht stimmt, braucht eine einfache Tür zur Hilfe: ein Wort an der Bar, und das Team weiss, was zu tun ist. Grosse Clubs haben Awareness-Konzepte; die Quartierbar, die Beiz und das Vereinsfest haben oft nichts. Diese Seite macht daraus in zehn Minuten ein Plakat und eine Team-Karte.',
+ intro_1:'Betrieb und ein eigenes Codewort eintragen. Ein unauffälliger Satz, den kein Gast zufällig sagt.', intro_2:'Plakat drucken (WC-Türen, Garderobe, hinter der Bar) und die Team-Karte ans Personal geben. Fünf Minuten Briefing vor der Schicht.', intro_3:'Bei jedem Teamwechsel wiederholen. Ein Codewort, das das Personal nicht kennt, ist schlimmer als keines.',
+ note:'Nichts wird gesendet. Die Angaben bleiben in deinem Browser. Die Seite ersetzt kein Sicherheitskonzept und keine Schulung; sie ist der Anfang davon. Inhalte folgen den öffentlichen Empfehlungen von Polizei und Beratungsstellen zu Belästigung und K.O.-Tropfen; Details für Bern bei der Kantonspolizei Bern und der Stadt Bern («Bern schaut hin»).',
+ l_venue:'Betrieb', f_venue:'Name des Betriebs', f_code:'Codewort', ph_code:'Ist Anna da?', f_contact:'Ansprechperson im Betrieb', ph_contact:'Barchef*in oder Security, jede Nacht vor Ort', f_taxi:'Taxi (Nummer, die ihr anruft)', f_report:'Link zum Meldetool oder zur Beratungsstelle (wird als QR gedruckt)', f_report_lbl:'Beschriftung des QR', ph_reportlbl:'Bern schaut hin: Belästigung melden',
+ l_opts:'Plakat', th_dark:'Dunkel (Club)', th_light:'Hell (Beiz, Fest)', c_night:'Block «Sicher nach Hause» mit Moonliner-Hinweis', c_second:'Codewort-Satz zusätzlich auf Französisch und Englisch', f_extra:'Eigener Zusatz', ph_extra:'Unser Team ist geschult. Awareness-Team erkennbar am violetten Band.', f_trained:'Team gebrieft am',
+ b_poster:'Plakat drucken (A4, A3 skalieren)', b_cards:'Team-Karten drucken (2 × A5)', b_example:'Beispiel ansehen', b_clear:'Alles löschen', b_clear_sure:'Wirklich? Nochmals tippen.', print_hint:'Im Druckdialog «Kopf- und Fusszeilen» aus, «Hintergrundgrafiken» an. Für A3: Skalierung 141 %.', prev_eyebrow:'Vorschau Plakat',
+ p_kicker:'Hier bist du sicher', p_title:'Sicher feiern', p_example:'BEISPIEL', p_code_k:'Fühlst du dich unwohl, bedrängt, unsicher?', p_code_p:'Sag diesen Satz an der Bar. Wir helfen dir diskret: ein ruhiger Ort, deine Freunde anrufen, ein Taxi, die Polizei. Du entscheidest, was passiert. Niemand fragt dich aus.',
+ p_code_2_fr:'Dis cette phrase au bar, on t’aide discrètement.', p_code_2_en:'Say this sentence at the bar, we help discreetly.',
+ p_drink_h:'Dein Getränk, dein Glas', p_drink:['Glas nie aus den Augen lassen; kein offenes Getränk von Fremden annehmen.','Plötzlich schwindlig, übel, benommen, obwohl du wenig getrunken hast? Sag es sofort dem Personal oder deinen Leuten. Geh nicht allein.','Bei Verdacht auf K.O.-Tropfen: rasch ins Spital oder 144. Ein Nachweis ist nur wenige Stunden möglich.'],
+ p_home_h:'Sicher nach Hause', p_home:['Geh nicht allein, wenn es dir nicht gut geht. Wir rufen dir ein Taxi oder deine Freunde.','Nachtbusse Moonliner fahren am Wochenende ab Bahnhof Bern; frag an der Bar nach der nächsten Abfahrt.','Wenn du jemanden siehst, dem es schlecht geht: nicht wegschauen. Sag es uns.'],
+ n_144:'Sanität', n_117:'Polizei', n_112:'Europäischer Notruf', n_143:'Dargebotene Hand', n_taxi:'Taxi',
+ p_qr_lbl_default:'Belästigung erlebt oder gesehen? Melden hilft.', p_foot1:'Dieser Betrieb hat ein Codewort und ein gebrieftes Team.', p_foot2:'Team gebrieft am', p_foot3:'Sicher feiern (CC0)',
+ card_h:'Wenn ein Gast das Codewort sagt', card_sub:'Team-Karte, hinter die Bar', card_code:'Codewort:',
+ card_steps:['<b>Ruhig bleiben, ernst nehmen.</b> Nicht laut wiederholen, nicht ausfragen. Kein Gast ist «zu betrunken» für Hilfe.','<b>Sicheren Ort anbieten:</b> hinter die Bar, Büro, Garderobe. Kolleg*in informieren, Gast nie allein lassen.','<b>Fragen, was der Gast will:</b> Freunde anrufen, Taxi, Polizei 117. Der Gast entscheidet, nicht wir.','<b>Verdacht auf K.O.-Tropfen:</b> nicht ansprechbar oder bewusstlos → 144. Sonst rasch ins Spital begleiten lassen. Glas aufbewahren.','<b>Belästiger:</b> nicht allein konfrontieren, Security oder Chef*in holen. Hausverbot nach Reglement. Bei Gewalt 117.','<b>Notieren:</b> Zeit, was passiert ist, Beschreibung der Person, Zeugen. Unten eintragen.'],
+ card_log:'Vorfall (Zeit, was, wer, Zeugen)', card_contact:'Ansprechperson', card_taxi:'Taxi',
+ site_1:'Sicher feiern ist frei (CC0). Kein Ersatz für Beratung: bei Übergriffen Polizei 117, bei Gesundheitsgefahr 144, Opferhilfe über die kantonale Beratungsstelle. Hinweise zur Sicherheit im Nachtleben: Kantonspolizei Bern, Stadt Bern.',
+ t_cleared:'Gelöscht'},
+fr:{tagline:'Une affiche pour les hôtes, une carte pour l’équipe. Pour chaque bar et club de Berne.',
+ intro_p:'Qui se sent harcelé en sortie ou remarque soudain que quelque chose ne va pas a besoin d’une porte simple vers l’aide : un mot au bar, et l’équipe sait quoi faire. Les grands clubs ont des concepts awareness ; le bar de quartier, le bistrot et la fête de société n’ont souvent rien. Cette page en fait une affiche et une carte d’équipe en dix minutes.',
+ intro_1:'Saisir l’établissement et un mot de code propre. Une phrase discrète qu’aucun hôte ne dit par hasard.', intro_2:'Imprimer l’affiche (portes des WC, vestiaire, derrière le bar) et donner la carte au personnel. Cinq minutes de briefing avant le service.', intro_3:'Répéter à chaque changement d’équipe. Un mot de code que le personnel ignore est pire qu’aucun.',
+ note:'Rien n’est envoyé. Les données restent dans votre navigateur. La page ne remplace ni concept de sécurité ni formation ; elle en est le début. Les contenus suivent les recommandations publiques de la police et des centres de consultation sur le harcèlement et les drogues du viol ; détails pour Berne auprès de la Police cantonale bernoise et de la Ville de Berne (« Bern schaut hin »).',
+ l_venue:'Établissement', f_venue:'Nom de l’établissement', f_code:'Mot de code', ph_code:'Anna est là ?', f_contact:'Personne de référence', ph_contact:'Chef*fe de bar ou sécurité, présent chaque nuit', f_taxi:'Taxi (numéro que vous appelez)', f_report:'Lien vers l’outil de signalement ou le centre de consultation (imprimé en QR)', f_report_lbl:'Légende du QR', ph_reportlbl:'Bern schaut hin : signaler un harcèlement',
+ l_opts:'Affiche', th_dark:'Sombre (club)', th_light:'Clair (bistrot, fête)', c_night:'Bloc « Rentrer en sécurité » avec Moonliner', c_second:'Phrase de code aussi en allemand et anglais', f_extra:'Ajout personnel', ph_extra:'Notre équipe est formée. Équipe awareness reconnaissable au bracelet violet.', f_trained:'Équipe briefée le',
+ b_poster:'Imprimer l’affiche (A4, A3 à l’échelle)', b_cards:'Imprimer les cartes équipe (2 × A5)', b_example:'Voir un exemple', b_clear:'Tout effacer', b_clear_sure:'Vraiment ? Touchez encore.', print_hint:'Dans la boîte d’impression : en-têtes désactivés, « graphiques d’arrière-plan » activés. A3 : échelle 141 %.', prev_eyebrow:'Aperçu de l’affiche',
+ p_kicker:'Ici tu es en sécurité', p_title:'Faire la fête en sécurité', p_example:'EXEMPLE', p_code_k:'Tu te sens mal, harcelé·e, pas en sécurité ?', p_code_p:'Dis cette phrase au bar. On t’aide discrètement : un endroit calme, appeler tes amis, un taxi, la police. C’est toi qui décides. Personne ne te questionne.',
+ p_code_2_fr:'Sag diesen Satz an der Bar, wir helfen diskret.', p_code_2_en:'Say this sentence at the bar, we help discreetly.',
+ p_drink_h:'Ton verre, ton choix', p_drink:['Ne perds jamais ton verre de vue ; n’accepte pas de boisson ouverte d’inconnus.','Soudain des vertiges, des nausées, la tête qui tourne alors que tu as peu bu ? Dis-le tout de suite au personnel ou à tes amis. Ne pars pas seul·e.','Soupçon de drogue du viol : vite à l’hôpital ou 144. La preuve n’est possible que quelques heures.'],
+ p_home_h:'Rentrer en sécurité', p_home:['Ne rentre pas seul·e si tu ne te sens pas bien. On t’appelle un taxi ou tes amis.','Les bus de nuit Moonliner partent le week-end de la gare de Berne ; demande au bar le prochain départ.','Tu vois quelqu’un qui va mal ? Ne détourne pas le regard. Dis-le-nous.'],
+ n_144:'Ambulance', n_117:'Police', n_112:'Urgence européenne', n_143:'La Main Tendue', n_taxi:'Taxi',
+ p_qr_lbl_default:'Harcèlement vécu ou vu ? Signaler aide.', p_foot1:'Cet établissement a un mot de code et une équipe briefée.', p_foot2:'Équipe briefée le', p_foot3:'Sicher feiern (CC0)',
+ card_h:'Quand un hôte dit le mot de code', card_sub:'Carte équipe, derrière le bar', card_code:'Mot de code :',
+ card_steps:['<b>Rester calme, prendre au sérieux.</b> Ne pas répéter fort, ne pas questionner. Aucun hôte n’est « trop ivre » pour être aidé.','<b>Proposer un lieu sûr :</b> derrière le bar, bureau, vestiaire. Informer un·e collègue, ne jamais laisser l’hôte seul·e.','<b>Demander ce que l’hôte veut :</b> appeler des amis, taxi, police 117. C’est l’hôte qui décide, pas nous.','<b>Soupçon de drogue du viol :</b> pas réactif ou inconscient → 144. Sinon faire accompagner vite à l’hôpital. Garder le verre.','<b>Harceleur :</b> ne pas confronter seul·e, appeler la sécurité ou le chef. Interdiction d’entrée selon règlement. Violence : 117.','<b>Noter :</b> heure, faits, description de la personne, témoins. Ci-dessous.'],
+ card_log:'Incident (heure, faits, qui, témoins)', card_contact:'Personne de référence', card_taxi:'Taxi',
+ site_1:'Sicher feiern est libre (CC0). Ne remplace pas un conseil : agression → police 117, danger pour la santé → 144, aide aux victimes via le centre cantonal. Sécurité dans la vie nocturne : Police cantonale bernoise, Ville de Berne.',
+ t_cleared:'Effacé'},
+it:{tagline:'Un poster per gli ospiti, una carta per il team. Per ogni bar e club di Berna.',
+ intro_p:'Chi in serata si sente molestato o si accorge che qualcosa non va ha bisogno di una porta semplice verso l’aiuto: una parola al bar, e il team sa cosa fare. I grandi club hanno concetti awareness; il bar di quartiere, la trattoria e la festa della società spesso non hanno nulla. Questa pagina ne fa un poster e una carta per il team in dieci minuti.',
+ intro_1:'Inserire l’esercizio e una propria parola in codice. Una frase discreta che nessun ospite dice per caso.', intro_2:'Stampare il poster (porte dei WC, guardaroba, dietro il bar) e dare la carta al personale. Cinque minuti di briefing prima del turno.', intro_3:'Ripetere a ogni cambio di team. Una parola in codice che il personale non conosce è peggio di nessuna.',
+ note:'Nulla viene inviato. I dati restano nel browser. La pagina non sostituisce un concetto di sicurezza né una formazione; ne è l’inizio. I contenuti seguono le raccomandazioni pubbliche di polizia e consultori su molestie e droghe dello stupro; dettagli per Berna presso la Polizia cantonale bernese e la Città di Berna («Bern schaut hin»).',
+ l_venue:'Esercizio', f_venue:'Nome dell’esercizio', f_code:'Parola in codice', ph_code:'C’è Anna?', f_contact:'Persona di riferimento', ph_contact:'Capo bar o security, presente ogni notte', f_taxi:'Taxi (numero che chiamate)', f_report:'Link allo strumento di segnalazione o al consultorio (stampato come QR)', f_report_lbl:'Didascalia del QR', ph_reportlbl:'Bern schaut hin: segnalare molestie',
+ l_opts:'Poster', th_dark:'Scuro (club)', th_light:'Chiaro (trattoria, festa)', c_night:'Blocco «A casa sicuri» con Moonliner', c_second:'Frase in codice anche in tedesco e inglese', f_extra:'Aggiunta personale', ph_extra:'Il nostro team è formato. Team awareness riconoscibile dal braccialetto viola.', f_trained:'Team istruito il',
+ b_poster:'Stampa poster (A4, A3 in scala)', b_cards:'Stampa carte team (2 × A5)', b_example:'Vedi un esempio', b_clear:'Cancella tutto', b_clear_sure:'Davvero? Tocca di nuovo.', print_hint:'Nella finestra di stampa: intestazioni disattivate, «grafica di sfondo» attivata. A3: scala 141 %.', prev_eyebrow:'Anteprima poster',
+ p_kicker:'Qui sei al sicuro', p_title:'Festeggiare sicuri', p_example:'ESEMPIO', p_code_k:'Ti senti a disagio, molestato/a, insicuro/a?', p_code_p:'Di’ questa frase al bar. Ti aiutiamo con discrezione: un posto tranquillo, chiamare i tuoi amici, un taxi, la polizia. Decidi tu. Nessuno ti fa domande.',
+ p_code_2_fr:'Dis cette phrase au bar, on t’aide discrètement.', p_code_2_en:'Say this sentence at the bar, we help discreetly.',
+ p_drink_h:'Il tuo bicchiere', p_drink:['Non perdere mai di vista il bicchiere; non accettare bevande aperte da sconosciuti.','Improvvisi vertigini, nausea, stordimento pur avendo bevuto poco? Dillo subito al personale o ai tuoi amici. Non andare via da solo/a.','Sospetto di droga dello stupro: presto in ospedale o 144. La prova è possibile solo per poche ore.'],
+ p_home_h:'A casa sicuri', p_home:['Non tornare da solo/a se non ti senti bene. Ti chiamiamo un taxi o i tuoi amici.','I bus notturni Moonliner partono nel fine settimana dalla stazione di Berna; chiedi al bar la prossima partenza.','Vedi qualcuno che sta male? Non guardare altrove. Diccelo.'],
+ n_144:'Ambulanza', n_117:'Polizia', n_112:'Emergenza europea', n_143:'Telefono Amico', n_taxi:'Taxi',
+ p_qr_lbl_default:'Molestie vissute o viste? Segnalare aiuta.', p_foot1:'Questo esercizio ha una parola in codice e un team istruito.', p_foot2:'Team istruito il', p_foot3:'Sicher feiern (CC0)',
+ card_h:'Quando un ospite dice la parola in codice', card_sub:'Carta team, dietro il bar', card_code:'Parola in codice:',
+ card_steps:['<b>Mantenere la calma, prendere sul serio.</b> Non ripetere ad alta voce, non interrogare. Nessun ospite è «troppo ubriaco» per essere aiutato.','<b>Offrire un luogo sicuro:</b> dietro il bar, ufficio, guardaroba. Informare un/a collega, non lasciare mai solo l’ospite.','<b>Chiedere cosa vuole l’ospite:</b> chiamare amici, taxi, polizia 117. Decide l’ospite, non noi.','<b>Sospetto droga dello stupro:</b> non reattivo o incosciente → 144. Altrimenti farlo accompagnare presto in ospedale. Conservare il bicchiere.','<b>Molestatore:</b> non affrontarlo da soli, chiamare security o responsabile. Divieto d’accesso secondo regolamento. Violenza: 117.','<b>Annotare:</b> ora, fatti, descrizione della persona, testimoni. Qui sotto.'],
+ card_log:'Incidente (ora, fatti, chi, testimoni)', card_contact:'Persona di riferimento', card_taxi:'Taxi',
+ site_1:'Sicher feiern è libero (CC0). Non sostituisce la consulenza: aggressioni → polizia 117, pericolo per la salute → 144, aiuto alle vittime tramite il consultorio cantonale. Sicurezza nella vita notturna: Polizia cantonale bernese, Città di Berna.',
+ t_cleared:'Cancellato'},
+en:{tagline:'A poster for guests, a card for the team. For every bar and club in Bern.',
+ intro_p:'Anyone who feels harassed on a night out, or suddenly notices something is wrong, needs a simple door to help: one sentence at the bar, and the team knows what to do. Big clubs have awareness concepts; the neighbourhood bar, the pub and the club party often have nothing. This page turns that into a poster and a team card in ten minutes.',
+ intro_1:'Enter the venue and your own code word. An inconspicuous sentence no guest says by accident.', intro_2:'Print the poster (toilet doors, cloakroom, behind the bar) and hand the team card to staff. Five minutes of briefing before the shift.', intro_3:'Repeat at every team change. A code word the staff does not know is worse than none.',
+ note:'Nothing is sent. Your entries stay in your browser. The page replaces neither a safety concept nor training; it is the beginning of one. Content follows public recommendations of police and counselling services on harassment and drink spiking; details for Bern from the Bern Cantonal Police and the City of Bern (“Bern schaut hin”).',
+ l_venue:'Venue', f_venue:'Venue name', f_code:'Code word', ph_code:'Is Anna here?', f_contact:'Contact person on site', ph_contact:'Bar manager or security, on site every night', f_taxi:'Taxi (number you call)', f_report:'Link to the reporting tool or counselling service (printed as QR)', f_report_lbl:'QR caption', ph_reportlbl:'Bern schaut hin: report harassment',
+ l_opts:'Poster', th_dark:'Dark (club)', th_light:'Light (pub, party)', c_night:'“Getting home safely” block with Moonliner note', c_second:'Code sentence also in German and French', f_extra:'Your own note', ph_extra:'Our team is trained. Awareness team wears a purple band.', f_trained:'Team briefed on',
+ b_poster:'Print poster (A4, scale for A3)', b_cards:'Print team cards (2 × A5)', b_example:'See an example', b_clear:'Clear everything', b_clear_sure:'Really? Tap again.', print_hint:'In the print dialog: headers off, “background graphics” on. For A3: scale 141 %.', prev_eyebrow:'Poster preview',
+ p_kicker:'You are safe here', p_title:'Party safely', p_example:'EXAMPLE', p_code_k:'Feeling uneasy, pressured, unsafe?', p_code_p:'Say this sentence at the bar. We help discreetly: a quiet place, calling your friends, a taxi, the police. You decide what happens. Nobody interrogates you.',
+ p_code_2_fr:'Dis cette phrase au bar, on t’aide discrètement.', p_code_2_en:'Sag diesen Satz an der Bar, wir helfen diskret.',
+ p_drink_h:'Your drink, your glass', p_drink:['Never lose sight of your glass; do not accept open drinks from strangers.','Suddenly dizzy, sick, dazed although you drank little? Tell staff or your friends at once. Do not leave alone.','Suspected drink spiking: quickly to hospital or 144. Evidence can be secured only for a few hours.'],
+ p_home_h:'Getting home safely', p_home:['Do not go alone if you feel unwell. We call you a taxi or your friends.','Moonliner night buses run at weekends from Bern main station; ask at the bar for the next departure.','If you see someone in a bad way: do not look away. Tell us.'],
+ n_144:'Ambulance', n_117:'Police', n_112:'European emergency', n_143:'Listening line', n_taxi:'Taxi',
+ p_qr_lbl_default:'Experienced or witnessed harassment? Reporting helps.', p_foot1:'This venue has a code word and a briefed team.', p_foot2:'Team briefed on', p_foot3:'Sicher feiern (CC0)',
+ card_h:'When a guest says the code word', card_sub:'Team card, behind the bar', card_code:'Code word:',
+ card_steps:['<b>Stay calm, take it seriously.</b> Do not repeat it loudly, do not interrogate. No guest is “too drunk” for help.','<b>Offer a safe place:</b> behind the bar, office, cloakroom. Tell a colleague, never leave the guest alone.','<b>Ask what the guest wants:</b> call friends, taxi, police 117. The guest decides, not us.','<b>Suspected spiking:</b> unresponsive or unconscious → 144. Otherwise get them to hospital quickly with company. Keep the glass.','<b>Harasser:</b> do not confront alone, get security or the manager. Ban per house rules. Violence: 117.','<b>Write it down:</b> time, what happened, description, witnesses. Below.'],
+ card_log:'Incident (time, what, who, witnesses)', card_contact:'Contact person', card_taxi:'Taxi',
+ site_1:'Sicher feiern is free (CC0). Not a substitute for advice: assault → police 117, health danger → 144, victim support via the cantonal counselling service. Nightlife safety: Bern Cantonal Police, City of Bern.',
+ t_cleared:'Cleared'}};
+var EXAMPLE={venue:'Bar Sonne, Länggasse', code:'Ist Anna da?', contact:'Barchef*in, jede Nacht vor Ort', taxi:'031 000 00 00', report:'https://www.bern.ch', reportlbl:'Bern schaut hin: Belästigung melden', o_night:true, o_second:true, extra:'Unser Team ist geschult. Awareness-Team erkennbar am violetten Band.', trained:'', theme:'dark'};
+var $=function(id){return document.getElementById(id);}, el=function(tag,cls,text){var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;};
+var lang='de'; try{ var sl=localStorage.getItem('sf_lang'); if(sl&&I18N[sl]) lang=sl; }catch(e){}
+if(!sl){ var nav=(navigator.language||'de').slice(0,2).toLowerCase(); if(I18N[nav]) lang=nav; }
+function t(k){ return I18N[lang][k]; }
+var TEXT=['venue','code','contact','taxi','report','reportlbl','extra','trained'], CHECK=['o_night','o_second'];
+var st={theme:'dark', o_night:true, o_second:false}; TEXT.forEach(function(k){ st[k]=''; });
+try{ var raw=localStorage.getItem('sf_state'); if(raw){ var s=JSON.parse(raw); Object.keys(st).forEach(function(k){ if(s[k]!==undefined) st[k]=s[k]; }); } }catch(e){}
+var showExample=false;
+function save(){ try{ localStorage.setItem('sf_state', JSON.stringify(st)); }catch(e){} }
+function isEmpty(){ return !st.venue && !st.code; }
+function fmtD(iso){ if(!iso) return ''; var p=iso.split('-'); return p.length===3 ? p[2]+'.'+p[1]+'.'+p[0] : iso; }
+function changed(){ showExample=false; save(); render(); }
+
+function qrSvg(text){
+  try{ if(typeof qrcode!=='function') return null; var q=qrcode(0,'M'); q.addData(text); q.make(); return q.createSvgTag({cellSize:2, margin:0, scalable:true}); }catch(e){ return null; }
+}
+function render(){
+  var s=st, ex=false; if(isEmpty()||showExample){ s=EXAMPLE; ex=true; }
+  var p=$('poster'); p.classList.toggle('example',ex); p.setAttribute('data-example',t('p_example')); p.classList.toggle('light', (ex?EXAMPLE.theme:st.theme)==='light');
+  $('p_kicker').textContent=t('p_kicker'); $('p_title').textContent=t('p_title'); $('p_venue').textContent=s.venue||'';
+  $('p_code_k').textContent=t('p_code_k'); $('p_code_w').textContent='«'+(s.code||t('ph_code'))+'»'; $('p_code_p').textContent=t('p_code_p');
+  $('p_code_2').textContent = s.o_second ? (t('p_code_2_fr')+' · '+t('p_code_2_en')) : ''; $('p_code_2').hidden=!s.o_second;
+  $('p_drink_h').textContent=t('p_drink_h'); var du=$('p_drink_ul'); du.textContent=''; t('p_drink').forEach(function(x){ du.appendChild(el('li',null,x)); });
+  $('p_home').hidden=!s.o_night; $('p_home_h').textContent=t('p_home_h'); var hu=$('p_home_ul'); hu.textContent=''; t('p_home').forEach(function(x){ hu.appendChild(el('li',null,x)); });
+  var nums=[['144',t('n_144'),true],['117',t('n_117'),false],['112',t('n_112'),false], s.taxi ? [s.taxi,t('n_taxi'),false] : ['143',t('n_143'),false]];
+  var pn=$('p_nums'); pn.textContent=''; nums.forEach(function(n){ var d=el('div','p-num'+(n[2]?' hot':'')); d.appendChild(el('b',null,n[0])); d.appendChild(el('span',null,n[1])); pn.appendChild(d); });
+  var qrbox=$('p_qr'); var svg = s.report ? qrSvg(s.report) : null;
+  if(svg){ qrbox.hidden=false; $('p_qr_svg').innerHTML=svg; $('p_qr_lbl').textContent=s.reportlbl||t('p_qr_lbl_default'); $('p_qr_url').textContent=s.report.replace(/^https?:\/\//,''); } else { qrbox.hidden=true; }
+  $('p_extra').textContent=s.extra||''; $('p_extra').hidden=!s.extra;
+  $('p_foot1').textContent=t('p_foot1')+(s.contact?' · '+s.contact:''); $('p_foot2').textContent=(s.trained? t('p_foot2')+' '+fmtD(s.trained)+' · ':'')+t('p_foot3');
+  renderCards(s); scaleSheet();
+}
+function renderCards(s){
+  var box=$('cards'); box.textContent='';
+  for(var i=0;i<2;i++){
+    var c=el('div','card5'); var h=el('div','h'); h.appendChild(el('b',null,t('card_h'))); h.appendChild(el('span',null,(s.venue||'')+' · '+t('card_sub'))); c.appendChild(h);
+    var body=el('div'); var cw=el('p',null,''); cw.style.cssText='margin:0 0 2mm;font-size:12pt'; cw.appendChild(el('b',null,t('card_code')+' ')); cw.appendChild(document.createTextNode('«'+(s.code||t('ph_code'))+'»')); body.appendChild(cw);
+    var ol=el('ol'); t('card_steps').forEach(function(step){ var li=el('li'); var parts=step.split(/<\/?b>/); parts.forEach(function(part,idx){ if(!part) return; if(idx%2===1) li.appendChild(el('b',null,part)); else li.appendChild(document.createTextNode(part)); }); ol.appendChild(li); }); body.appendChild(ol);
+    var lines=el('div','lines'); var l1=el('div',null,t('card_log')); lines.appendChild(l1); lines.appendChild(el('div')); lines.appendChild(el('div')); body.appendChild(lines); c.appendChild(body);
+    var f=el('div','f'); f.appendChild(el('span',null,t('card_contact')+': '+(s.contact||'—')+(s.taxi?' · '+t('card_taxi')+' '+s.taxi:'')+' · 144 · 117')); f.appendChild(el('span',null,t('p_foot3'))); c.appendChild(f); box.appendChild(c);
+  }
+}
+function scaleSheet(){ var wrap=$('sheetwrap'), sh=$('poster'); sh.style.transform='none'; var avail=wrap.clientWidth-24, full=sh.offsetWidth; var k=Math.min(1, avail/full); sh.style.transform='scale('+k+')'; wrap.style.height=(sh.offsetHeight*k+24)+'px'; }
+window.addEventListener('resize', scaleSheet);
+function bind(){
+  TEXT.forEach(function(k){ var i=$(k); i.value=st[k]; i.addEventListener('input', function(){ st[k]=i.value; changed(); }); });
+  CHECK.forEach(function(k){ var c=$(k); c.checked=!!st[k]; c.addEventListener('change', function(){ st[k]=c.checked; changed(); }); });
+  $('thDark').addEventListener('click', function(){ st.theme='dark'; setTheme(); changed(); }); $('thLight').addEventListener('click', function(){ st.theme='light'; setTheme(); changed(); }); setTheme();
+}
+function setTheme(){ $('thDark').setAttribute('aria-pressed', String(st.theme==='dark')); $('thLight').setAttribute('aria-pressed', String(st.theme==='light')); }
+function renderUI(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(function(n){ var v=t(n.getAttribute('data-i18n')); if(typeof v==='string') n.textContent=v; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(n){ var v=t(n.getAttribute('data-i18n-ph')); if(typeof v==='string') n.placeholder=v; });
+  document.querySelectorAll('.langs button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lang')===lang)); });
+  render();
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ lang=b.getAttribute('data-lang'); try{ localStorage.setItem('sf_lang',lang); }catch(e){} renderUI(); }); });
+var toastTimer; function toast(m){ var tt=$('toast'); tt.textContent=m; tt.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ tt.classList.remove('show'); },1800); }
+$('printPoster').addEventListener('click', function(){ document.body.classList.add('print-poster'); window.print(); setTimeout(function(){ document.body.classList.remove('print-poster'); },1000); });
+$('printCards').addEventListener('click', function(){ document.body.classList.add('print-cards'); window.print(); setTimeout(function(){ document.body.classList.remove('print-cards'); },1000); });
+$('exampleBtn').addEventListener('click', function(){ showExample=!showExample; render(); });
+var armed=false, armT; $('clearBtn').addEventListener('click', function(){ if(!armed){ armed=true; $('clearBtn').textContent=t('b_clear_sure'); armT=setTimeout(function(){ armed=false; $('clearBtn').textContent=t('b_clear'); },4000); return; } clearTimeout(armT); armed=false; $('clearBtn').textContent=t('b_clear');
+  TEXT.forEach(function(k){ st[k]=''; $(k).value=''; }); st.o_night=true; st.o_second=false; $('o_night').checked=true; $('o_second').checked=false; st.theme='dark'; setTheme(); showExample=false; try{ localStorage.removeItem('sf_state'); }catch(e){} render(); toast(t('t_cleared')); });
+bind(); renderUI();
+window.addEventListener('load', render);
+})();
+</script>
+</body>
+</html>
